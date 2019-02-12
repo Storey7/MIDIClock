@@ -1,9 +1,18 @@
+
+#include "MIDIUSB.h"
+/*Todo: 
+ * Receive USB signal
+ * Receive MIDI clock signal
+ * Output analogue 2 pulse per quarter note as audio.
+ * Ouput Midi clock based on internal clock.
+ * Buttons.
+*/
 void setup() {
-  // put your setup code here, to run once:
+
 
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
+
 
 }
