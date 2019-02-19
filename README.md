@@ -25,7 +25,10 @@ The following steps outline this process:
 1. Download [Flip](https://www.microchip.com/developmenttools/ProductDetails/FLIP).
 2. Download [HIDUINO](https://github.com/ddiakopoulos/hiduino/tree/master/compiled_firmwares) (MIDI firmware) and [Arduino](https://github.com/arduino/ArduinoCore-avr/tree/master/firmwares/atmegaxxu2/arduino-usbserial) (Original firmware) hex files. 
 3. Upload project .ino schematic. (Important. You won't be able to upload schematics via usb once the chip has been flashed.)
-4. Short these two pins to reset the chip. ![atmega_rst_pins](/atmega16u2_rst.png "Atmega16u2 reset pins")
+4. Short these two pins to reset the chip. 
+
+![atmega_rst_pins](/atmega16u2_rst.png "Atmega16u2 reset pins")
+
 5. Run Flip and load the HIDUINO hex file. Click run to verify the hex, and then click start application to load the hex onto the chip.
 6. Reset the Arduino. Your computer should now recognise it as a MIDI device and begin installing drivers. 
 7. Once this is complete, your arduino should be listed as a MIDI controller in the DAW of your choice. 
