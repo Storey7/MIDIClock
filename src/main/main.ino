@@ -19,32 +19,39 @@ MIDI_CREATE_INSTANCE(UsbTransport, sUsbTransport, MIDI);
 MIDI_CREATE_DEFAULT_INSTANCE();
 #endif
 
-//Pulse per quarter note. Each beat has 24 pulses.
-//Tempo is based on software inner BPM.
-const int pulseOutPin = 3;
+//MIDI clock signals.
+byte midi_start = 0xfa;
+byte midi_stop = 0xfc;
+byte midi_clock = 0xf8;
+byte midi_continue = 0xfb;
+
+
+const int pulseOutPin = 10;
 const int ledPin = 13;
 
 void handleNoteOn(byte inChannel, byte inNumber, byte inVelocity)
 {
-    Serial.print("NoteOn  ");
-    Serial.print(inNumber);
     digitalWrite(ledPin, HIGH);
-    tone(pulseOutPin, 440);
+    digitalWrite(pulseOutPin, HIGH);
 }
 void handleNoteOff(byte inChannel, byte inNumber, byte inVelocity)
 {
-    Serial.print("NoteOff ");
-    Serial.print(inNumber);
     digitalWrite(ledPin, LOW);
-    noTone(pulseOutPin);
+    digitalWrite(pulseOutPin, LOW);
 }
 
 void setup() {
-    Serial.begin(115200);
-    while (!Serial);
     MIDI.begin();
     MIDI.setHandleNoteOn(handleNoteOn);
     MIDI.setHandleNoteOff(handleNoteOff);
+
+    /*
+    MIDI.setHandleClock(handleClock);
+    MIDI.setHandleStart(handleStart);
+    MIDI.setHandleStop(handleStop);
+    MIDI.setHandleContinue(handleContinue);
+    */
+    pinMode(pulseOutPin, OUTPUT);
     pinMode(ledPin, OUTPUT);
     Serial.println("Arduino ready.");
 }
