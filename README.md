@@ -4,28 +4,24 @@
 
 The primary aim of this project is to develop a cheap and easy-to-use interface between a Digital Audio Workstation (DAW) and the control voltage used by analogue synthesizers, using an Arduino UNO.
 
+### Features
 
-### Goals
+ * Receives MIDI clock input via usb
+ * Outputs analogue control voltage / audio pulses. 
 
-#### Primary
-
- * Receive MIDI clock input via usb
- * Output analogue control voltage / audio pulses. 
-
-#### Secondary
-
+#### To be added
  * Display showing current BPM and output type
  * Switches for altering the output. (1V/2V/5V, 1/2/4 pulses-per-quarter note etc.)
 
 ## Using Arduino UNO as USB MIDI device
 
-To use the the UNO as a MIDI input device, you must first flash the Atmega16u2 chip with MIDI firmware.
+To use the the UNO as a MIDI input device, the Atmega16u2 chip must be flashed with MIDI firmware.
 The following steps outline this process:
 
 1. Download [Flip](https://www.microchip.com/developmenttools/ProductDetails/FLIP).
 2. Download [HIDUINO](https://github.com/ddiakopoulos/hiduino/tree/master/compiled_firmwares) (MIDI firmware) and [Arduino](https://github.com/arduino/ArduinoCore-avr/tree/master/firmwares/atmegaxxu2/arduino-usbserial) (Original firmware) hex files. 
 3. Upload project .ino schematic. (Important. You won't be able to upload schematics via usb once the chip has been flashed.)
-4. Short these two pins to reset the chip. 
+4. Short these two pins to reset the chip: 
 
 ![atmega_rst_pins](/atmega16u2_rst.png "Atmega16u2 reset pins")
 
